@@ -8,5 +8,5 @@ data Term =
   | TmSucc Term
   | TmPred Term
   | TmIsZero Term
-  deriving (Show)
+  deriving (Show, Eq)
 

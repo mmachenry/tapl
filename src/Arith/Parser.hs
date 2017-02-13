@@ -2,30 +2,39 @@ module Arith.Parser where
 
 import Arith.Ast
 import Text.Parsec
+import Text.Parsec.Language
 import Text.Parsec.Char (char, string)
-import Text.Parsec.ByteString as TPBS
+import Text.Parsec.String as TPS
+import qualified Text.ParserCombinators.Parsec.Token as Token
 
-parseFromFile = TPBS.parseFromFile pterms
+parseFromFile = TPS.parseFromFile program
 
-pterms = sepBy pterm (char ';')
+languageDef = emptyDef {
+  Token.reservedNames = [
+    "true", "fale", "if", "then", "else", "z", "succ", "pred", "iszero" ]
+  }
 
-pterm =
-      ptrue
-  <|> pfalse
-  <|> pifThenElse
-  <|> pzero
-  <|> psucc
-  <|> ppred
-  <|> piszero
+lexer = Token.makeTokenParser languageDef
+reserved = Token.reserved lexer
+whiteSpace = Token.whiteSpace lexer
+semi = Token.semi lexer
+parens = Token.parens lexer
 
-ptrue = string "true" *> pure TmTrue
-pfalse = string "false" *> pure TmFalse
-pifThenElse =
-  TmIf <$> (string "if" *> pterm)
-       <*> (string "then" *> pterm)
-       <*> (string "else" *> pterm)
-pzero = string "0" *> pure TmZero
-psucc = TmSucc <$> (string "succ" *> pterm)
-ppred = TmPred <$> (string "pred" *> pterm)
-piszero = TmIsZero <$> (string "iszero" *> pterm)
+program = whiteSpace *> terms
+terms = sepBy1 term semi
+
+term =
+      parens term
+  <|> (reserved "true" *> pure TmTrue)
+  <|> (reserved "false" *> pure TmFalse)
+  <|> ifThenElse
+  <|> (reserved "z" *> pure TmZero)
+  <|> (TmSucc <$> (reserved "succ" *> term))
+  <|> (TmPred <$> (reserved "pred" *> term))
+  <|> (TmIsZero <$> (reserved "iszero" *> term))
+
+ifThenElse =
+  TmIf <$> (reserved "if" *> term)
+       <*> (reserved "then" *> term)
+       <*> (reserved "else" *> term)
 
