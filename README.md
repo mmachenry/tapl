@@ -7,3 +7,5 @@ libraries work. It might make a nice reading supliment to anyone reading
 through the text who is more familiar with Haskell than OCaml. Furthermore I
 intend to use it as a springboard for further work of my own which might use 
 some of these little languages as a starting point.
+
+http://www.cis.upenn.edu/~bcpierce/tapl/index.html
