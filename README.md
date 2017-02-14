@@ -9,3 +9,6 @@ intend to use it as a springboard for further work of my own which might use
 some of these little languages as a starting point.
 
 http://www.cis.upenn.edu/~bcpierce/tapl/index.html
+
+[04-arith](04-arith/README.md)
+[07-untyped](07-untyped/README.md)
