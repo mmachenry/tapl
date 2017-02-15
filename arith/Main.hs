@@ -1,8 +1,8 @@
 module Main where
 
 import System.Environment (getArgs)
-import Arith.Eval (eval)
-import Arith.Parser (parseFromFile)
+import Eval (eval)
+import Parser (parseFromFile)
 
 main :: IO ()
 main = do

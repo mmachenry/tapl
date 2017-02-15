@@ -1,6 +1,6 @@
-module Arith.Eval where
+module Eval where
 
-import Arith.Ast
+import Ast
 
 isNumericVal t = case t of
   TmZero -> True

@@ -1,4 +1,4 @@
-module Arith.Ast where
+module Ast where
 
 data Term =
     TmTrue 
