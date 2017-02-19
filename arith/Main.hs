@@ -1,7 +1,7 @@
 module Main where
 
 import System.Environment (getArgs)
-import Eval (eval)
+import Core (eval)
 import Parser (parseFromFile)
 
 main :: IO ()

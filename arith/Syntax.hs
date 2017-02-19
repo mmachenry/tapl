@@ -1,4 +1,4 @@
-module Ast where
+module Syntax where
 
 data Term =
     TmTrue 

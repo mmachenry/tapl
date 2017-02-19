@@ -1,6 +1,6 @@
 module Parser where
 
-import Ast
+import Syntax
 import Text.Parsec
 import Text.Parsec.Language
 import Text.Parsec.String as TPS

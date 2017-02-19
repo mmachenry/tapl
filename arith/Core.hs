@@ -1,6 +1,6 @@
-module Eval where
+module Core where
 
-import Ast
+import Syntax
 
 isNumericVal t = case t of
   TmZero -> True
