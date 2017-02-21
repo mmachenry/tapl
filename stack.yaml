@@ -1,0 +1,8 @@
+resolver: lts-8.1
+packages:
+- support
+- arith
+# - untyped
+# extra-deps: []
+#flags: {}
+#extra-package-dbs: []
