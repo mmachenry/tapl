@@ -7,6 +7,7 @@ import Text.Parsec.String as TPS
 import qualified Text.ParserCombinators.Parsec.Token as Token
 
 parseFromFile = TPS.parseFromFile program
+parseFromString = parse program ""
 
 languageDef = emptyDef {
   Token.reservedNames = [

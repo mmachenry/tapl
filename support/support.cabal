@@ -8,3 +8,11 @@ library
   exposed-modules:     Support
   build-depends:       base
   default-language:    Haskell2010
+
+test-suite support-test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Spec.hs
+  build-depends:       base
+                     , support
+                     , hspec
