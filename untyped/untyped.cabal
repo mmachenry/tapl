@@ -18,3 +18,4 @@ test-suite untyped-test
   build-depends:       base
                      , untyped
                      , hspec
+  default-language:    Haskell2010

@@ -1,9 +1,9 @@
-module Parser where
+module Parser (parseFromFile, parseFromString) where
 
 import Syntax
 import Text.Parsec
 import Text.Parsec.Language
-import Text.Parsec.String as TPS
+import qualified Text.Parsec.String as TPS
 import qualified Text.ParserCombinators.Parsec.Token as Token
 
 parseFromFile = TPS.parseFromFile program

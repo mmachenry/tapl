@@ -9,12 +9,13 @@ library
   build-depends:       base
                      , parsec
                      , support
+  default-language:    Haskell2010
 
 test-suite arith-test
   type:                exitcode-stdio-1.0
   hs-source-dirs:      test
   main-is:             Spec.hs
-  other-modules:       ParserSpec
+  other-modules:       ParserSpec, CoreSpec
   build-depends:       base
                      , arith
                      , hspec
